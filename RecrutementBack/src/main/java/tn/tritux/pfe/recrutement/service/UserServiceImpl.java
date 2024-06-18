@@ -90,6 +90,7 @@ public class UserServiceImpl implements UserService{
                 .nom(user.getNom())
                 .prenom(user.getPrenom()).
                 image_profile(user.getImage_profile()).
+                role(user.getRole().name()).
                 email(user.getEmail()).build();
     }
 }

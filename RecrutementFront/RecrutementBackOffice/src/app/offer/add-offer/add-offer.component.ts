@@ -37,6 +37,7 @@ export class AddOfferComponent implements OnInit {
       exigencesLangue: ['', Validators.required],
       typeEmploi: ['', Validators.required],
       dateLimite: ['', Validators.required],
+      etatOffer: ['', Validators.required],
       categorieId: ['', Validators.required],
       image: ['', Validators.required]
     });

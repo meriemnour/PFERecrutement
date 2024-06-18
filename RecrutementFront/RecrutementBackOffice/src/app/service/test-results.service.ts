@@ -7,7 +7,7 @@ import { TestResult } from '../models/test-result.model';
   providedIn: 'root'
 })
 export class TestResultService {
-  private apiUrl = 'http://localhost:8080/api/test-results';
+  private apiUrl = 'http://localhost:8082/api/test-results';
 
   constructor(private http: HttpClient) {}
 

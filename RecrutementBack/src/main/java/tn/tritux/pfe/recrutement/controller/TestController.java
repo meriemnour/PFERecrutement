@@ -22,9 +22,9 @@ public class TestController {
         return ResponseEntity.ok(testService.ajouterTest(testRequest));
     }
 
-    @PutMapping
-    public ResponseEntity<TestResponse> modifierTest(@RequestBody TestRequest testRequest) {
-        return ResponseEntity.ok(testService.modifierTest(testRequest));
+    @PutMapping("/{id}")
+    public ResponseEntity<TestResponse> modifierTest(@RequestBody TestRequest testRequest,@PathVariable Long id) {
+        return ResponseEntity.ok(testService.modifierTest(testRequest,id));
     }
 
     @DeleteMapping("/{id}")

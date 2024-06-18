@@ -57,11 +57,11 @@ export class OfferDetailsComponent implements OnInit {
   }
 
   getImageUrl(filename: string | null): string {
-    return `http://localhost:8080/api/files/get-image/${filename}`;
+    return `http://localhost:8082/api/files/get-image/${filename}`;
   }
 
   downloadFile(filename: string | null): void {
-    const url = `http://localhost:8080/api/files/get-file/${filename}`;
+    const url = `http://localhost:8082/api/files/get-file/${filename}`;
     window.open(url);
   }
 

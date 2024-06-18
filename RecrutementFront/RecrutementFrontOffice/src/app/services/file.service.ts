@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FileService {
 
-  private apiUrl='http://localhost:8080/api/files';
+  private apiUrl='http://localhost:8082/api/files';
 
   constructor(private http:HttpClient) { }
   uploadFile(file:File):Observable<string>{

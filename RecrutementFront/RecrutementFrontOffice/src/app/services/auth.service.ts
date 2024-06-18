@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl='http://localhost:8080/api/users';
+  private apiUrl='http://localhost:8082/api/users';
 
   private loggedIn=new BehaviorSubject<boolean>(this.isTokenAvailable());
   constructor(private http:HttpClient,private router:Router) { }

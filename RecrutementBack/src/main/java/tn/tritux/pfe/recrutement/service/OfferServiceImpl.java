@@ -7,6 +7,7 @@ import tn.tritux.pfe.recrutement.dto.request.OfferRequest;
 import tn.tritux.pfe.recrutement.dto.response.OfferResponse;
 import tn.tritux.pfe.recrutement.entity.Candidature;
 import tn.tritux.pfe.recrutement.entity.Categorie;
+import tn.tritux.pfe.recrutement.entity.EtatOffer;
 import tn.tritux.pfe.recrutement.entity.Offer;
 import tn.tritux.pfe.recrutement.repository.CandidatureRepository;
 import tn.tritux.pfe.recrutement.repository.CategorieRepository;
@@ -97,7 +98,7 @@ public class OfferServiceImpl implements OfferService{
     }
     private Offer requestToEntity(OfferRequest offerRequest){
         Offer offer=new Offer();
-        offer.setId(offerRequest.getId());
+        //offer.setId(offerRequest.getId());
         offer.setDescription(offerRequest.getDescription());
         offer.setAvantages(offerRequest.getAvantages());
         offer.setLocalisation(offerRequest.getLocalisation());
@@ -110,6 +111,7 @@ public class OfferServiceImpl implements OfferService{
         offer.setNiveauExperience(offerRequest.getNiveauExperience());
         offer.setTypeEmploi(offerRequest.getTypeEmploi());
         offer.setImage(offerRequest.getImage());
+        offer.setEtatOffer(EtatOffer.valueOf(offerRequest.getEtatOffer()));
         offer.setCategorie(categorieRepository.findById(offerRequest.getCategorieId()).orElseThrow(()->new RuntimeException("Categorie not found")));
 
         return offer;
@@ -131,6 +133,8 @@ public class OfferServiceImpl implements OfferService{
         response.setTypeEmploi(offer.getTypeEmploi());
         response.setCategorieId(offer.getCategorie().getId());
         response.setCategorieName(offer.getCategorie().getNom());
+
+        response.setEtatOffer(offer.getEtatOffer().name());
         return response;
     }
 }

@@ -17,5 +17,6 @@ public class TestResponse {
     private Long id;
     private LocalDateTime dateCreation;
     private String type;
+    private String technologie;
     private List<QuestionResponse> questions;
 }

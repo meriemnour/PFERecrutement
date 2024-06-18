@@ -27,4 +27,5 @@ public class Offer {
     private EtatOffer etatOffer;
     @ManyToOne(fetch = FetchType.EAGER)
     private Categorie categorie;
+
 }

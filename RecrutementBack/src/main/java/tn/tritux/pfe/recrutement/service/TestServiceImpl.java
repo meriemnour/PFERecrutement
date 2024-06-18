@@ -1,6 +1,7 @@
 package tn.tritux.pfe.recrutement.service;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.stereotype.Service;
 import tn.tritux.pfe.recrutement.dto.request.TestRequest;
 import tn.tritux.pfe.recrutement.dto.response.QuestionResponse;
@@ -10,6 +11,7 @@ import tn.tritux.pfe.recrutement.entity.Test;
 import tn.tritux.pfe.recrutement.entity.TestType;
 import tn.tritux.pfe.recrutement.repository.TestRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,8 +28,9 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public TestResponse modifierTest(TestRequest testRequest) {
+    public TestResponse modifierTest(TestRequest testRequest,Long id) {
         Test test = requestToEntity(testRequest);
+        test.setId(id);
         test = testRepository.save(test);
         return entityToResponse(test);
     }
@@ -52,8 +55,9 @@ public class TestServiceImpl implements TestService {
 
     private Test requestToEntity(TestRequest testRequest) {
         Test test = new Test();
-        test.setDateCreation(testRequest.getDateCreation());
+        test.setDateCreation(LocalDateTime.now());
         test.setType(TestType.valueOf(testRequest.getType()));
+        test.setTechnologie(testRequest.getTechnologie());
         return test;
     }
 
@@ -62,9 +66,13 @@ public class TestServiceImpl implements TestService {
         testResponse.setId(test.getId());
         testResponse.setDateCreation(test.getDateCreation());
         testResponse.setType(test.getType().name());
-        testResponse.setQuestions(test.getQuestions().stream()
-                .map(this::questionToResponse)
-                .collect(Collectors.toList()));
+        testResponse.setTechnologie(test.getTechnologie());
+        if(test.getQuestions()!=null){
+            testResponse.setQuestions(test.getQuestions().stream()
+                    .map(this::questionToResponse)
+                    .collect(Collectors.toList()));
+        }
+
         return testResponse;
     }
 

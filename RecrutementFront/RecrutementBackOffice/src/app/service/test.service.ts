@@ -7,7 +7,7 @@ import { Test } from '../models/test.model';
   providedIn: 'root'
 })
 export class TestService {
-  private apiUrl = 'http://localhost:8080/api/tests';
+  private apiUrl = 'http://localhost:8082/api/tests';
 
   constructor(private http: HttpClient) {}
 
@@ -15,8 +15,8 @@ export class TestService {
     return this.http.post<Test>(`${this.apiUrl}`, test);
   }
 
-  modifierTest(test: Test): Observable<Test> {
-    return this.http.put<Test>(`${this.apiUrl}`, test);
+  modifierTest(test: Test,id:number): Observable<Test> {
+    return this.http.put<Test>(`${this.apiUrl}/${id}`, test);
   }
 
   supprimerTest(id: number): Observable<void> {

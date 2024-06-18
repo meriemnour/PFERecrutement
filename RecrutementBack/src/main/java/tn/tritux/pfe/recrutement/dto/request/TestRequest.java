@@ -15,4 +15,5 @@ import java.time.LocalDateTime;
 public class TestRequest {
     private LocalDateTime dateCreation;
     private String type;
+    private String technologie;
 }

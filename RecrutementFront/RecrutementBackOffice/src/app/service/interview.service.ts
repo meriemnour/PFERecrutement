@@ -8,7 +8,7 @@ import { Interview } from '../models/interview.model';
 })
 export class InterviewService {
 
-  private apiUrl='http://localhost:8080/api/interviews';
+  private apiUrl='http://localhost:8082/api/interviews';
 
   constructor(private http: HttpClient) {}
 

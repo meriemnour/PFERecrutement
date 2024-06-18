@@ -12,7 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OfferRequest {
-    private Long id;
+    //private Long id;
     private String titre;
     private String description;
     private String qualification;

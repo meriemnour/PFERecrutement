@@ -228,7 +228,7 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="others-option d-md-flex align-items-center">
+                <div class="others-option d-md-flex align-items-center" *ngIf="!(authService.isLoggedIn | async); else loggedInSection">
                     <div class="option-item">
                         <span
                             class="d-block login-register"
@@ -256,6 +256,27 @@
                         </a>
                     </div>
                 </div>
+                <ng-template #loggedInSection>
+                    <div class="option-item">
+                        <a routerLink="/dashboard/post-a-new-job" class="default-btn">
+                            Post A Job
+                        </a>
+                    </div>
+                    <div class="option-item" [ngClass]="{'d-none': router.url === '/index-2' || router.url === '/index-3'}" style="padding-left: 200px;">
+                        <div class="user-info-dropdown" (click)="toggleDropdown()">
+                            <a href="javascript:void(0)" class="d-inline-block hotline fw-medium user-info">
+                                <img [src]="getImageUrl(currentUser.image_profile)" alt="" class="user-image">
+                                <h6 class="user-name">{{currentUser.nom}} {{currentUser.prenom}}</h6>
+                            </a>
+                            <div class="dropdown-menu" [class.show]="dropdownOpen">
+                                <a routerLink="/profile" class="dropdown-item">Profile</a>
+                                <a href="javascript:void(0)" class="dropdown-item" (click)="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                
+                
             </div>
         </nav>
     </div>

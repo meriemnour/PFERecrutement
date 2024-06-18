@@ -42,7 +42,7 @@ export class OfferComponent implements OnInit{
 
   }
   getImageUrl(filename:string):string{
-      return `http://localhost:8080/api/files/get-image/${filename}`;
+      return `http://localhost:8082/api/files/get-image/${filename}`;
   }
   setDefaultImage(event:any){
     event.target.src='assets/images/bg/bg3.jpg'

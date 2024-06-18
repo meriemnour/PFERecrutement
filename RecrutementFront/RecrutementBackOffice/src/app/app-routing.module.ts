@@ -26,6 +26,10 @@ export const Approutes: Routes = [
         loadChildren: ()=>import('./offer/offer.module').then(m=>m.OfferModule)
       },
       {
+        path:'testoffers',
+        loadChildren: ()=>import('./testoffers/testoffers.module').then(m=>m.TestoffersModule)
+      },
+      {
         path:'candidature',
         loadChildren: ()=>import('./candidature/candidature.module').then(m=>m.CandidatureModule)
       },

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface TestService {
     TestResponse ajouterTest(TestRequest testRequest);
-    TestResponse modifierTest(TestRequest testRequest);
+    TestResponse modifierTest(TestRequest testRequest,Long id);
     void supprimerTest(Long id);
     TestResponse afficherTestParId(Long id);
     List<TestResponse> afficherTests();

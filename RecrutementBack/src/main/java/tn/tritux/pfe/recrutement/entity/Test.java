@@ -16,6 +16,7 @@ public class Test {
     private LocalDateTime dateCreation;
     @Enumerated(EnumType.STRING)
     private TestType type;
+    private String technologie;
     @OneToMany(mappedBy = "test")
     private List<Question> questions;
     @OneToMany(mappedBy = "test")
