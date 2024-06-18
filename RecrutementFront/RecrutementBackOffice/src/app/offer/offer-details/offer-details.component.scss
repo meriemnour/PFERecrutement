@@ -1,0 +1,55 @@
+.offer-details-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.offer-header {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.offer-title {
+    color: #333;
+    font-size: 24px;
+}
+
+.offer-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.offer-description {
+    text-align: justify;
+    color: #666;
+    line-height: 1.6;
+}
+
+.offer-meta {
+    background-color: #e9ecef;
+    border-radius: 8px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.offer-meta div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-meta strong {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}

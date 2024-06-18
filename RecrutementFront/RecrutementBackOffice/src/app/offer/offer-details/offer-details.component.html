@@ -1,0 +1,61 @@
+<div class="offer-details-container">
+    <div class="offer-header">
+        <h2 class="offer-title">{{offer.titre}}</h2>
+        <img class="offer-image" *ngIf="offer.image" [src]="getImageUrl(offer.image)" (error)="setDefaultImage($event)">
+        <br>
+        <h3>Description:</h3>
+        <p class="offer-description">{{offer.description}}</p>
+        <br>
+        <h3>Qualification:</h3>
+        <p class="offer-description">{{offer.qualification}}</p>
+        <br>
+        <h3>Avantages:</h3>
+        <p class="offer-description">{{offer.avantages}}</p>
+        <div class="offer-meta">
+            <div><strong>Localisation:</strong> {{offer.localisation}}</div>
+            <div><strong>Niveau d'expérience:</strong> {{offer.niveauExperience}}</div>
+            <div><strong>Exigences langue:</strong> {{offer.exigencesLangue}}</div>
+            <div><strong>Type d'emploi:</strong> {{offer.typeEmploi}}</div>
+            <div><strong>Date de publication:</strong> {{offer.dateDePublication | date}}</div>
+            <div><strong>Date limite:</strong> {{offer.dateLimite | date}}</div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table align-middle text-nowrap">
+            <thead>
+                <tr>
+                    <th class="text-dark font-medium fs-4">Candidat</th>
+                    <th class="text-dark font-medium fs-4">CV</th>
+                    <th class="text-dark font-medium fs-4">Diplome</th>
+                    <th class="text-dark font-medium fs-4">Date candidature</th>
+                    <th class="text-dark font-medium fs-4">Etat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let candidature of candidatureList; let i=index'>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img [src]="getImageUrl(candidatList[i]!.imageProfile)" alt="user" width="45" class="rounded-circle">
+                            <div class="ms-3">
+                                <h5 class="mb-0 font-medium">{{getUserFullName(candidatList[i]?.userId)}}</h5>
+                                <span class="text-muted">{{getUserEmail(candidatList[i]?.userId)}}</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" (click)="downloadFile(candidatList[i]!.cv)">Télécharger CV</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" (click)="downloadFile(candidatList[i]!.diplome)">Télécharger Diplome</button>
+                    </td>
+                    <td>
+                        <h5 class="mb-0 fw-normal">{{candidature.dateCandidature | date}}</h5>
+                    </td>
+                    <td>
+                        <h5 class="mb-0 fw-normal">{{candidature.etat}}</h5>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
